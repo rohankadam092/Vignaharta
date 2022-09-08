@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>About Us</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='bappa.ico') }}">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Algerian', serif;
+    display: grid;
+    background-color: orange;
+    background-image: orange;  
+    align-content: center;
+    min-height: 100vh;
+}
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 70vh;
+    width: 75vw;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 12px
+}
+.image{
+    background-color: #12192c;
+    display: flex;
+    border-radius: 12px 0 0 12px;
+}
+.image img{
+height:50vh;
+margin:50px auto
+}
+.content{
+    background-color: #12192c;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0  12px 12px 0;
+    color: #fff;
+}
+.content h2{
+    text-transform: uppercase;
+    font-size: 36px;
+    letter-spacing: 6px;
+    opacity: 0.9;
+}
+.content h4{
+    text-transform: uppercase;
+    font-size: 26px;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+.content span{
+    height: 0.5px;
+    width: 120px;
+    background: #777;
+    margin: 30px 0;
+}
+.content p{
+    padding-bottom: 15px;
+    font-weight: 300;
+    font-size: 24px;
+    opacity: 0.7;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.7;
+    color:#ffffff
+}
+
+.links{
+    margin: 15px 0;
+}
+.links li{
+    border: 2px solid #4158D0;
+    list-style: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 160px;
+    text-align: center;
+}
+.links li a{
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+}
+.links li:hover{
+    border-color: #C850C0;
+}
+
+.vertical-line{
+    height: 30px;
+    width: 3px;
+    background: #C850C0;
+    margin: 0 auto;
+}
+.icons{
+    display: flex;
+    padding: 15px 0;
+}
+.icons li{
+    display: block;
+    padding: 5px;
+    margin: 5px;
+}
+.icons li i{
+    font-size: 26px;
+    opacity: 0.8;
+}
+.icons li i:hover{
+    color: #C850C0;
+    cursor: pointer;
+}
+
+
+/*****************/
+
+.credit{
+    text-align: center;
+    color: #000;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .credit a{
+    text-decoration: none;
+    color:#000;
+    font-weight: bold;
+  } 
+  .btn{
+    font-size: 36px;
+    background-color: rgba(255, 0, 0, 0.955);
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+
+        </style>
+        <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav><center>
+            <a href="/"><button class="btn" style="padding: 13px 50px;"><b>Home</b></button></a>
+            <div class="animation start-home"></div>
+          </center></nav>     
+          <br>             
+        <section>
+            <div class = "image">
+               <img src="https://gumlet.assettype.com/freepressjournal/import/2017/07/W_end_July23_pg8_Tilak-1.jpg?format=webp&w=400&dpr=2.6">
+            </div>
+
+            <div class = "content">
+                <h2>About Us</h2>
+                <span></span>
+                <h4><u>Welcome to pandal website</u></h4><br>
+                <p>We are here to share our ideas on.We are providing all pandals information like their history, establishment and many more. Also you will get a proper location and a assistance from google maps for particular route directions. We hope that you like our Website</p>
+                <p>For more queries contact us on <a href="mailto:"><b>ganpatipandal@gmail.com</b></a></p>
+                
+    </body>
+</html>

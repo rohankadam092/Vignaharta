@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganpati Pandal </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='bappa.ico') }}">
+    <style>
+    
+    *{
+            box-sizing: border-box;
+        }
+        body{
+            background-color: antiquewhite;
+            position: relative;
+        }
+        .mySlides {display: none}
+        .btn{
+            background-color: #008CBA;
+            color: white;
+            border:none;
+            padding: 15px 60px;
+            text-align: center;
+            cursor:pointer;}
+
+        .nav-item{
+            padding: 0 10px;
+        }
+        .navbar-brand{
+            margin-left: 1rem;
+        }
+        .chatbox-main{
+            display: none;
+            position:fixed;
+            bottom: 10px;
+            right:40px;
+            height:300px;
+            width:450px;
+            z-index: 1;
+            background-color: white;
+            border: 1px solid black;
+
+        }
+        thead td{
+          font-weight: bold;
+          font-size: large;
+        }
+
+        .chatbox{
+            position:inherit;
+            
+            right:41px;
+            height:250px;
+            width:448px;
+            z-index: 2;
+            background-color: white;
+            overflow: scroll;
+
+        }
+
+        .chatbox-input{
+            position: inherit;
+            bottom: 10px;
+            width: inherit;
+            
+        }
+
+        #messages{
+           
+            margin-left:10px;
+            height:auto;
+            width:200px;
+            border:1px solid transparent;
+            background-color:lightblue;
+            color:blue;
+            margin-top:1em;
+            border-radius: 20px;
+
+        }
+        #ourmessages{
+            margin-left:auto;
+            margin-right:10px;
+            width:200px;
+            height:auto;
+            border:1px solid transparent;
+            background-color:lightblue;
+            color:blue;
+            margin-top:1em;
+            border-radius: 20px;
+        }
+        .flex-box{
+            display:flex;
+            justify-content: space-between;
+        }
+
+        .cancel{
+            position: absolute;
+            right: 0px;
+            top:0px;
+            color:Red;
+            border:1px solid transparent;
+            background-color: aliceblue;
+            z-index: 5;
+            height: 25px;
+            width: 25px;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        #openchatbox{
+            position: fixed;
+            right:50px;
+            bottom:30px;
+            padding:15px 15px;
+        }
+
+        .flex-center{
+            display: flex;
+            justify-content: center;
+        }
+    .btn{
+      background-color: rgb(69, 67, 71);
+    }
+    
+</style>
+<body class="w3-orange">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center fixed-top">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="">
+      <img src="{{url_for('static', filename='tilak.jpg')}}" alt="logo" style="width:40px;">
+    </a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/#services">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/#darshan">Live Darshan</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/aboutus">About us</a>
+      </li>
+    </ul>
+    <a class="navbar-brand" href="">
+      <img src="https://th.bing.com/th/id/OIP.IxFytUFfWPg1-cJK5BVrogHaI6?w=182&h=220&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="logo" style="width:40px;">
+  </a>
+  </nav>     
+      <br>  <br><br>  <br><br>                                                                        
+    <div align="center">
+      <p>City</p>
+      <form action="/ganpatiinfo" method="post">
+        <Select name="City">
+          <option value="All">All</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Pune">Pune</option>
+          <option value="Kolhapur">Kolhapur</option>
+          <option value="Nagpur">Nagpur</option>
+          <option value="Solapur">Solapur</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Bengaluru">Bengaluru</option>
+          <option value="Thane">Thane</option>
+          <option value="Mapusa">Mapusa</option>
+          <option value="Solapur">Solapur</option>
+          <input type="submit" value="Go">
+      </form>
+	</select><br>
+  <a href="/maps"><button class="btn" style="padding: 10px 35px;"><b>Map</b></button></a>
+  <br><br>
+        <table border="3">
+            <thead>
+                <td> Pandals </td>
+                <td> City </td>
+                <td> State </td>
+                <td> Address </td>
+                <td> Information </td>
+                <td> Year of Establishment </td>
+                <td> Website </td>
+                <td> Location</td>
+            </thead>
+            {% for i in i+%}
+            <tr>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[3]}}</td>
+                <td>{{i[4]}}</td>
+                <td>{{i[5]}}</td>
+                <td>{{i[6]}}</td>
+                <td>{{i[7]}}</td>
+                <td> <a href="https://www.google.com/maps/place/{{i[4]}}">Click</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
